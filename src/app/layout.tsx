@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "HexVerse",
@@ -13,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`font-mono antialiased`}>{children}</body>
+      <body
+        className={`bg-background font-mono antialiased selection:bg-[hsl(320,65%,52%,20%)]`}
+      >
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
