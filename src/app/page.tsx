@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="m-4 text-6xl font-bold tracking-tight lg:text-7xl xl:text-8xl">
           HexVerse
         </h1>
-        <p className="lh:text-3xl max-w-screen-xl text-lg">
+        <p className="max-w-screen-xl text-lg lg:text-3xl">
           Forecast your future with ancient divination methods.
         </p>
         <div className="flex items-center gap-4">

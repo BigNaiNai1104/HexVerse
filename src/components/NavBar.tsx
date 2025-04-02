@@ -7,7 +7,7 @@ export default function NavBar() {
     <header className="bg-background/95 border-border flex w-full border-b py-6 shadow-xl">
       <nav className="container mx-auto flex items-center gap-10 px-8 font-semibold">
         <Link href="/" className="mr-auto">
-          Logo
+          HexVerse
         </Link>
         <Link href={"/"} className="text-lg">
           Yao
