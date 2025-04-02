@@ -13,13 +13,13 @@ export default function Home() {
         </p>
         <div className="flex items-center gap-4">
           <Link href={"/fortune"}>
-            <Button>Fortune</Button>
+            <Button>命理</Button>
           </Link>
           <Link href={"/ren"}>
-            <Button>Hexacle</Button>
+            <Button>小六壬</Button>
           </Link>
-          <Link href={"/fortune"}>
-            <Button>ThreeCoins</Button>
+          <Link href={"/yao"}>
+            <Button>六爻</Button>
           </Link>
         </div>
       </section>

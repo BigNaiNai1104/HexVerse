@@ -9,14 +9,14 @@ export default function NavBar() {
         <Link href="/" className="mr-auto">
           HexVerse
         </Link>
-        <Link href={"/"} className="text-lg">
-          Yao
+        <Link href={"/yao"} className="text-lg">
+          六爻
         </Link>
-        <Link href={"/"} className="text-lg">
-          Ren
+        <Link href={"/ren"} className="text-lg">
+          小六壬
         </Link>
-        <Link href={"/"} className="text-lg">
-          Fortune
+        <Link href={"/fortune"} className="text-lg">
+          命理
         </Link>
         <ToggleTheme />
       </nav>
