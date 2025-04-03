@@ -3,6 +3,7 @@ import React from "react";
 import explains from "../_lib/explains.json";
 import AIExplain from "./AIExplain";
 import Hexagram from "./Hexagram";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ExplainProps {
   hexagramNow: string;
@@ -10,7 +11,7 @@ interface ExplainProps {
 }
 
 const Explain: React.FC<ExplainProps> = ({ hexagramNow, hexagramFuture }) => {
-  // 如果没有生成卦象，显示提示信息
+  // 如果没有生成卦象，不显示任何内容
   if (!hexagramNow || !hexagramFuture) {
     return <></>;
   }
@@ -21,57 +22,62 @@ const Explain: React.FC<ExplainProps> = ({ hexagramNow, hexagramFuture }) => {
 
   return (
     <>
-      <div className="rounded-lg bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-xl font-semibold text-slate-800">卦象</h2>
-        <div className="space-y-6">
+      <Card className="bg-card/95 border-border shadow-md backdrop-blur-sm">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold">卦象</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
           {/* 本卦 */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-slate-700">
-              本卦：{nowExplain?.序号}卦 {nowExplain?.卦名}{" "}
-            </h3>
-            {hexagramNow}
-            <Hexagram code={hexagramNow} />
-            <div className="space-y-2">
-              <p className="text-slate-600">
+            <div className="flex items-center gap-4">
+              <Hexagram code={hexagramNow} />
+              <h3 className="text-lg font-medium">
+                本卦：{nowExplain?.序号}卦 {nowExplain?.卦名}
+              </h3>
+            </div>
+            <div className="bg-primary/5 space-y-2 rounded-lg p-4">
+              <p>
                 <span className="font-medium">卦辞：</span>
                 {nowExplain?.卦辞}
               </p>
-              <p className="text-slate-600">
+              <p>
                 <span className="font-medium">彖辞：</span>
                 {nowExplain?.彖辞}
               </p>
-              <p className="text-slate-600">
+              <p>
                 <span className="font-medium">象辞：</span>
                 {nowExplain?.象辞}
               </p>
             </div>
           </div>
-          <hr />
+
+          <div className="bg-border/60 h-px w-full"></div>
 
           {/* 变卦 */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium text-slate-700">
-              变卦：{futureExplain?.序号}卦 {futureExplain?.卦名}{" "}
-            </h3>
-            {hexagramFuture}
-            <Hexagram code={hexagramFuture} />
-            <div className="space-y-2">
-              <p className="text-slate-600">
+            <div className="flex items-center gap-4">
+              <Hexagram code={hexagramFuture} />
+              <h3 className="text-lg font-medium">
+                变卦：{futureExplain?.序号}卦 {futureExplain?.卦名}
+              </h3>
+            </div>
+            <div className="bg-primary/5 space-y-2 rounded-lg p-4">
+              <p>
                 <span className="font-medium">卦辞：</span>
                 {futureExplain?.卦辞}
               </p>
-              <p className="text-slate-600">
+              <p>
                 <span className="font-medium">彖辞：</span>
                 {futureExplain?.彖辞}
               </p>
-              <p className="text-slate-600">
+              <p>
                 <span className="font-medium">象辞：</span>
                 {futureExplain?.象辞}
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
       <AIExplain hexagramNow={nowExplain} hexagramFuture={futureExplain} />
     </>
   );

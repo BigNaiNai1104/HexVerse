@@ -6,16 +6,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { TabsContent, TabsTrigger } from "@/components/ui/tabs";
-import { Tabs, TabsList } from "@radix-ui/react-tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
 import { LIUSHEN, LIUSHEN_EXPLANATIONS } from "../_lib/constants";
 
 export default function Explanation() {
   return (
-    <Card className="shadow-md">
+    <Card className="bg-card/95 border-border shadow-md backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="text-xl">六神释义</CardTitle>
+        <CardTitle className="text-xl font-semibold">六神释义</CardTitle>
         <CardDescription>六神释义详解，帮助您理解卦象含义</CardDescription>
       </CardHeader>
 
@@ -33,11 +32,13 @@ export default function Explanation() {
             <TabsContent
               key={explanation.name}
               value={explanation.name}
-              className="mt-4"
+              className="mt-4 focus-visible:outline-none"
             >
-              <div className="space-y-2">
-                <h3 className="font-bold">{explanation.name}</h3>
-                <p>
+              <div className="bg-primary/5 space-y-3 rounded-lg p-4">
+                <h3 className="text-primary text-lg font-medium">
+                  {explanation.name}
+                </h3>
+                <p className="text-muted-foreground">
                   {explanation.name === "大安" && "身不动时，"}
                   {explanation.name === "留连" && "人未归时，"}
                   {explanation.name === "速喜" && "人即至时，"}
@@ -51,8 +52,10 @@ export default function Explanation() {
                   {explanation.numbers && `，凡谋事主${explanation.numbers}`}。
                   有{explanation.meanings}之含义。
                 </p>
-                <Separator className="my-2" />
-                <p className="italic">诀曰：{explanation.poem}</p>
+                <Separator className="bg-primary/10 my-2" />
+                <p className="text-muted-foreground text-sm italic">
+                  诀曰：{explanation.poem}
+                </p>
               </div>
             </TabsContent>
           ))}

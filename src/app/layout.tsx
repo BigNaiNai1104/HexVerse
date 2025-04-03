@@ -19,6 +19,14 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
+        <footer className="border-border/40 text-muted-foreground mt-16 border-t py-12 text-center text-sm">
+          <div className="container mx-auto">
+            <p>
+              &copy; {new Date().getFullYear()} HexVerse -
+              探索古老智慧的现代平台
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
