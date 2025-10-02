@@ -12,7 +12,15 @@ export const maxDuration = 60;
 
 export async function POST(request: NextRequest) {
   try {
-    const { prompt } = await request.json();
+    const body = await request.json();
+    const prompt = body?.prompt;
+
+    if (!prompt || typeof prompt !== "string") {
+      return NextResponse.json(
+        { error: "Missing or invalid 'prompt'" },
+        { status: 400 }
+      );
+    }
 
     const openai = createOpenAI({
       baseURL: apiUrl,
@@ -27,6 +35,7 @@ export async function POST(request: NextRequest) {
         console.error(error);
       },
     });
+
     return result.toDataStreamResponse();
   } catch (error) {
     console.error(error);
